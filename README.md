@@ -1,7 +1,7 @@
-#Windows Console
+# Windows Console
 **Windows Console** provides Object Oriented wrapper around Window's console.
 
-#Usage 
+# Usage 
 
 ```cpp
 #include "WindowsConsole.h"
@@ -32,7 +32,7 @@ int main() {
 
 ```
 
-#Available functions
+# Available functions
 
 ## Create
 Creates and sets up console. If you created console application project, then WindowsConsole object takes control over the existing console and releases control when you call `Destroy()` method. If you created windows application project, then WindowsConsole object creates new console and destroy it when you call `Destroy()` method.
@@ -55,7 +55,7 @@ console->Destroy();
 delete console;
 ```
 
-##Write
+## Write
 Write text on the console screen.
 
 Method starts writing at the last cursor position and leaves cursor at the position right behind the last character of the displated text.
@@ -75,7 +75,7 @@ As well as background color of the output text:
 console->Write(L"Hello world", ConsoleColor::Red, ConsoleColor::White);
 ```
 
-##Writeln
+## Writeln
 Write text on the console screen and move cursor to new line.
 
 Method starts writing at the last cursor position and move cursor to new line.
@@ -86,7 +86,7 @@ console->Writeln(L"Hello world", ConsoleColor::Red);
 console->Writeln(L"Hello world", ConsoleColor::Red, ConsoleColor::White);
 ```
 
-##Read
+## Read
 Reads characters from console input and save them in `outBuffer`.
 
 Number of characters read from input must be smaller than *input buffer size*. You can get *input buffer size* using `GetInputBufferSize()` and set it with `SetInputBufferSize()`.
@@ -109,15 +109,15 @@ std::wstring outBuffer;
 console->Read(outBuffer, ConsoleColor::Red, ConsoleColor::White);
 ```
 
-##ReadKey
+## ReadKey
 Returns code of the key that is down.
 
 ```cpp
-	// wait for ESC key
-	while(console->ReadKey() != 27) {  }
+// wait for ESC key
+while(console->ReadKey() != 27) {  }
 ```
 
-##Clear
+## Clear
 Clears console buffer.
 
 If color is passed as argument, then a new backgorund color is set - it works like `SetBackgorunColor()`.
@@ -127,7 +127,7 @@ console->Clear()
 console->Clear(ConsoleColor::Red)
 ```
 
-##Clearln
+## Clearln
 Clears line where the cursor is.
 
 ```cpp
@@ -187,62 +187,62 @@ Returns size of the cursor. Returned size is in [0, 100].
 char cursorSize = console->GetCursorSize();
 ```
 
-##HideConsoleWindow
+## HideConsoleWindow
 Hide console window.
 
 ```cpp
 console->HideConsoleWindow();
 ```
 
-##ShowConsoleWindow 
+## ShowConsoleWindow 
 Shows console window on the screen.
 
 ```cpp
 console->ShowConsoleWindow();
 ```
 
-##SetBackgroudColor
+## SetBackgroudColor
 Sets new background color of the console.
 
 ```cpp
 console->SetBackgroudColor(ConsoleColor::Red);
 ```
-##SetInputColor
+## SetInputColor
 Sets new color of the input font.
 
 ```cpp
 console->SetInputColor(ConsoleColor::Yellow);
 ```
 
-##SetOutputColor
+## SetOutputColor
 Sets new color of the output font.
 
 ```cpp
 console->SetOutputColor(ConsoleColor::White);
 ```
 
-##GetBackgroudColor
+## GetBackgroudColor
 Returns color of the backround.
 
 ```cpp
 ConsoleColor backgroundColor = console->GetBackgroudColor();
 ```
 
-##GetInputColor
+## GetInputColor
 Returns color of the input font.
 
 ```cpp
 ConsoleColor inputColor = console->GetInputColor();
 ```
 
-##GetOutputColor
+## GetOutputColor
 Returns color of the output font.
 
 ```cpp
 ConsoleColor outputColor = console->GetOutputColor();
 ```
 
-##SetWindowSize
+## SetWindowSize
 Resizes console window.
 
 Size of the console window is limited and depends of user's screen resolution. You can resize window to specific size returned by `GetLargestWindowSize()`. If you try to create window that is too large, method will do nothing and return false.
@@ -251,14 +251,14 @@ Size of the console window is limited and depends of user's screen resolution. Y
 console->SetWindowSize(128, 64);
 ```
 
-##GetWindowSize
+## GetWindowSize
 Returns console window size.
 
 ```cpp
 COORD size = console->GetWindowSize();
 ```
 
-##GetLargestWindowSize
+## GetLargestWindowSize
 Returns largest avalible console window size.
 
 ```cpp
@@ -282,21 +282,21 @@ Returns console buffer size.
 COORD size = console->GetBufferSize();
 ```
 
-##SetInputBufferSize
+## SetInputBufferSize
 Set the input buffer size. This is number of characters that console will be able to read from input.
 
 ```cpp
 console-> SetInputBufferSize(1024);
 ```
 
-##GetInputBufferSize
+## GetInputBufferSize
 Returns input buffer size. This is number of character that can be read from input.
 
 ```cpp
 short inputBufferSize = console->GetInputBufferSize();
 ```
 
-##EnableEcho
+## EnableEcho
 Enables console echo.
 
 When echo is enabled then charcters sent from input are displayed on the screen.
@@ -305,7 +305,7 @@ When echo is enabled then charcters sent from input are displayed on the screen.
 console->EnableEcho();
 ```
 
-##DisableEcho
+## DisableEcho
 Disables console echo.
 
 When echo is disabled then charcters sent from input are **NOT** displayed on the screen.
@@ -314,14 +314,14 @@ When echo is disabled then charcters sent from input are **NOT** displayed on th
 console->DisableEcho();
 ```
 
-##GetWindowHandle
+## GetWindowHandle
 Returns handle (HWND) to console window.
 
 ```cpp
 HWND handle = console->GetWindowHandle();
 ```
 
-#ConsoleColor
+# ConsoleColor
 `ConsoleColor` contains following colors:
 
 - Black
